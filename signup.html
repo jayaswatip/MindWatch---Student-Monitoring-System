@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup - MindWatch</title>
+  <link rel="stylesheet" href="home.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #d4f1f9, #fddde6);
+      margin: 0;
+      padding: 0;
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      transform: translateY(-10%); /* slightly above center */
+    }
+
+    .signup-box {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      width: 320px;
+      text-align: center;
+    }
+
+    .signup-box h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .signup-box input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .signup-box button {
+      width: 95%;
+      padding: 10px;
+      background-color: #6c63ff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .signup-box button:hover {
+      background-color: #574bff;
+    }
+
+    #signupMessage {
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🧠 MindWatch</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="signup.html" class="active">Signup</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="signup-box">
+      <h2>Signup</h2>
+      <input type="text" placeholder="Full Name" id="fullname"><br>
+      <input type="text" placeholder="Username" id="signupUsername"><br>
+      <input type="email" placeholder="Email" id="email"><br>
+      <input type="password" placeholder="Password" id="signupPassword"><br>
+      <input type="password" placeholder="Confirm Password" id="confirmPassword"><br>
+      <button onclick="signup()">Signup</button>
+      <p id="signupMessage"></p>
+    </div>
+  </main>
+
+  <script>
+    function signup() {
+      const fullname = document.getElementById("fullname").value.trim();
+      const username = document.getElementById("signupUsername").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("signupPassword").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (!fullname || !username || !email || !password || !confirmPassword) {
+        document.getElementById("signupMessage").textContent = "⚠ Please fill in all fields!";
+        document.getElementById("signupMessage").style.color = "red";
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        document.getElementById("signupMessage").textContent = "⚠ Passwords do not match!";
+        document.getElementById("signupMessage").style.color = "red";
+        return;
+      }
+
+      document.getElementById("signupMessage").textContent = "✅ Signup Successful!";
+      document.getElementById("signupMessage").style.color = "green";
+    }
+  </script>
+</body>
+</html>
