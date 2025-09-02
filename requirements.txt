@@ -1,0 +1,11 @@
+flask==3.0.0
+flask-cors==4.0.0
+flask
+torch
+ultralytics
+opencv-python
+matplotlib
+seaborn
+pandas
+Pillow
+pyyaml
